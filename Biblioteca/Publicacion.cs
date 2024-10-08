@@ -10,4 +10,14 @@ public class Publicacion
         this.producto = producto;
         this.Activo = Activo;
     }
+
+    public void ActivarPublicacion()
+    {
+        Activo = true;
+    }
+
+    public void DesactivarPublicacion()
+    {
+        Activo = false;
+    }
 }

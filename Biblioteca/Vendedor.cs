@@ -22,6 +22,15 @@ public class Vendedor
         this.Contraseña = Contraseña;
         this.productos = new List<Producto>(); 
     }
-
     
+    public void AgregarProducto(Producto producto)
+    {
+        productos.Add(producto);
+    }
+
+    public void EliminarProducto(Producto producto)
+    {
+        productos.Remove(producto);
+    }
+
 }
