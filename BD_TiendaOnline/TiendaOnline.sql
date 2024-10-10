@@ -60,7 +60,11 @@ CREATE TABLE CompraProductos (
 );
 
 
--- Creación de una función para obtener el precio total de un carrito
+
+
+-- -----------------------------------------------------
+-- function CalcularPrecioTotal
+-- -----------------------------------------------------
 DELIMITER //
 CREATE FUNCTION CalcularPrecioTotal(carritoId INT) 
 RETURNS DECIMAL(10, 2)
@@ -75,7 +79,9 @@ BEGIN
 END //
 DELIMITER ;
 
--- Creación de un procedimiento para agregar un producto al carrito
+-- -----------------------------------------------------
+-- procedure AgregarProductoCarrito
+-- -----------------------------------------------------
 DELIMITER //
 CREATE PROCEDURE AgregarProductoCarrito(IN vendedorId INT, IN productoId INT, IN cantidad INT)
 BEGIN
@@ -91,7 +97,9 @@ BEGIN
 END //
 DELIMITER ;
 
--- Creación de un procedimiento para realizar una compra
+-- -----------------------------------------------------
+-- procedure RealizarCompra
+-- -----------------------------------------------------
 DELIMITER //
 CREATE PROCEDURE RealizarCompra(IN vendedorId INT)
 BEGIN
@@ -106,7 +114,9 @@ END //
 DELIMITER ;
 
 
--- Creación de un procedimiento para activar o desactivar una publicación
+-- -----------------------------------------------------
+-- procedure CambiarEstadoPublicacion
+-- -----------------------------------------------------
 DELIMITER //
 CREATE PROCEDURE CambiarEstadoPublicacion(IN publicacionId INT, IN estado BOOLEAN)
 BEGIN
