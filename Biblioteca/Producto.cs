@@ -9,6 +9,8 @@ public class Producto
     public int CantidadStock { get; set; }
     public string URL { get; set; }
 
+    public required List<Tienda> Tiendas { get; set; }
+
     public Producto(string Nombre, string Descripcion, decimal Precio, string Categoria, int CantidadStock, string URL)
     {
         this.Nombre = Nombre;

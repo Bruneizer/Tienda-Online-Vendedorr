@@ -40,3 +40,16 @@ CREATE TABLE Compras (
     FOREIGN KEY (VendedorId) REFERENCES Vendedores(Id)
 );
 
+CREATE TABLE Carrito (
+    Id INT AUTO_INCREMENT PRIMARY KEY,
+    Cantidad INT NOT NULL
+);
+
+CREATE TABLE CarritoProducto (
+    CarritoId INT,
+    ProductoId INT,
+    PRIMARY KEY (CarritoId, ProductoId),
+    FOREIGN KEY (CarritoId) REFERENCES Carrito(Id) ON DELETE CASCADE,
+    FOREIGN KEY (ProductoId) REFERENCES Producto(Id) ON DELETE CASCADE
+);
+
