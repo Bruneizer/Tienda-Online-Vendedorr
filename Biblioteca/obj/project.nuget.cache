@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "a4SyTjT++FE=",
+  "dgSpecHash": "NwFIBL2L6sw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\carlo\\Documents\\GitHub\\Tienda-Online-Vendedorr\\Biblioteca\\Biblioteca.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Lab15-PC01\\Documents\\GitHub\\Tienda-Online-Vendedorr\\biblioteca\\Biblioteca.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lab15-PC01\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512"
+  ],
   "logs": []
 }

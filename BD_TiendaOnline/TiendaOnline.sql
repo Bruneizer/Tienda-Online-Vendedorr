@@ -53,3 +53,73 @@ CREATE TABLE CarritoProducto (
     FOREIGN KEY (ProductoId) REFERENCES Producto(Id) ON DELETE CASCADE
 );
 
+CREATE TABLE CompraProductos (
+    Id INT PRIMARY KEY IDENTITY,
+    CompraId INT FOREIGN KEY REFERENCES Compras(Id),
+    ProductoId INT FOREIGN KEY REFERENCES Productos(Id)
+);
+
+
+-- Creación de una función para obtener el precio total de un carrito
+DELIMITER //
+CREATE FUNCTION CalcularPrecioTotal(carritoId INT) 
+RETURNS DECIMAL(10, 2)
+BEGIN
+    DECLARE total DECIMAL(10, 2);
+    SELECT SUM(p.Precio * c.Cantidad) INTO total
+    FROM Carrito c
+    JOIN Producto p ON c.IdProducto = p.Id
+    WHERE c.Id = carritoId;
+    
+    RETURN total;
+END //
+DELIMITER ;
+
+-- Creación de un procedimiento para agregar un producto al carrito
+DELIMITER //
+CREATE PROCEDURE AgregarProductoCarrito(IN vendedorId INT, IN productoId INT, IN cantidad INT)
+BEGIN
+    DECLARE nuevoCarritoId INT;
+
+    -- Agregar el producto al carrito
+    INSERT INTO Carrito (IdVendedor, Cantidad) VALUES (vendedorId, cantidad);
+
+    SET nuevoCarritoId = LAST_INSERT_ID();
+    
+    -- Retornar el ID del carrito nuevo
+    SELECT nuevoCarritoId AS CarritoId;
+END //
+DELIMITER ;
+
+-- Creación de un procedimiento para realizar una compra
+DELIMITER //
+CREATE PROCEDURE RealizarCompra(IN vendedorId INT)
+BEGIN
+    DECLARE total DECIMAL(10, 2);
+    
+    -- Calcular el total
+    SET total = CalcularPrecioTotal(vendedorId);
+    
+    -- Insertar la compra
+    INSERT INTO Compra (IdVendedor, PrecioTotal) VALUES (vendedorId, total);
+END //
+DELIMITER ;
+
+
+-- Creación de un procedimiento para activar o desactivar una publicación
+DELIMITER //
+CREATE PROCEDURE CambiarEstadoPublicacion(IN publicacionId INT, IN estado BOOLEAN)
+BEGIN
+    UPDATE Publicacion SET Activo = estado WHERE Id = publicacionId;
+END //
+DELIMITER ;
+
+
+-- Ejemplo de inserción de un vendedor
+--INSERT INTO Vendedor (Nombre, Apellido, Email, CUIT, Domicilio, NombreUsuario, Contraseña)
+--VALUES ('Juan', 'Pérez', 'juan.perez@example.com', '20-12345678-9', 'Calle Falsa 123', 'juanp', 'contraseña123');
+
+--  Ejemplo de inserción de un producto
+-- INSERT INTO Producto (Nombre, Descripcion, Precio, Categoria, CantidadStock, URL, IdVendedor)
+-- VALUES ('Producto A', 'Descripción del Producto A', 100.00, 'Categoría 1', 10, 'http://example.com/productoA.jpg', 1);
+
