@@ -1,6 +1,8 @@
 using Scalar.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using Api.Persistencia;
+using Biblioteca.Dominio;
+using Api.Funcionalidades.Categorias;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,4 +35,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.MapGroup("/api")
+    .MapCategoriaEndpoint()
+    .WithTags("Categoria");
 app.Run();
