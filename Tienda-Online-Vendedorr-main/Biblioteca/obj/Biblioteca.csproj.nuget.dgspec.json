@@ -1,25 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "/mnt/Datos/Repos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/Biblioteca.csproj": {}
+    "C:\\Users\\Lab15-PC01\\Downloads\\Tienda-Online-Vendedorr\\Tienda-Online-Vendedorr-main\\Biblioteca\\Biblioteca.csproj": {}
   },
   "projects": {
-    "/mnt/Datos/Repos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/Biblioteca.csproj": {
+    "C:\\Users\\Lab15-PC01\\Downloads\\Tienda-Online-Vendedorr\\Tienda-Online-Vendedorr-main\\Biblioteca\\Biblioteca.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/mnt/Datos/Repos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/Biblioteca.csproj",
+        "projectUniqueName": "C:\\Users\\Lab15-PC01\\Downloads\\Tienda-Online-Vendedorr\\Tienda-Online-Vendedorr-main\\Biblioteca\\Biblioteca.csproj",
         "projectName": "Biblioteca",
-        "projectPath": "/mnt/Datos/Repos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/Biblioteca.csproj",
-        "packagesPath": "/home/et12alumno/.nuget/packages/",
-        "outputPath": "/mnt/Datos/Repos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/obj/",
+        "projectPath": "C:\\Users\\Lab15-PC01\\Downloads\\Tienda-Online-Vendedorr\\Tienda-Online-Vendedorr-main\\Biblioteca\\Biblioteca.csproj",
+        "packagesPath": "C:\\Users\\Lab15-PC01\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lab15-PC01\\Downloads\\Tienda-Online-Vendedorr\\Tienda-Online-Vendedorr-main\\Biblioteca\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/et12alumno/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Lab15-PC01\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,6 +35,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -53,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.110/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

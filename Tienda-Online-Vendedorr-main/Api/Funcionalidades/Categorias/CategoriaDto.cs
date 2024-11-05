@@ -1,10 +1,10 @@
 namespace Api.Funcionalidades.Categorias;
 
-public class CategoriaQueryDto 
+public class CategoriaQueryDto
 {
-    public Guid Id{ get; set; }
+    public Guid Id { get; set; }
     public required string Nombre { get; set; }
-    
+
 }
 
 public class CategoriaCommandDto

@@ -14,6 +14,6 @@ public class Categoria
     public required string Nombre { get; set; }
 
     [Required]
-    public required List<Producto> productos {get; set;} = new List<Producto>();
+    public List<Producto> productos {get; set;} = new List<Producto>();
 
 }

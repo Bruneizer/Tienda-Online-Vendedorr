@@ -1,6 +1,5 @@
-using Api.Persistencia;
-using Biblioteca.Dominio;
 using Microsoft.AspNetCore.Mvc;
+using Api.Persistencia;
 
 namespace Api.Funcionalidades.Categorias;
 
@@ -8,19 +7,30 @@ public static class CategoriaEndpoint
 {
     public static RouteGroupBuilder MapCategoriaEndpoint(this RouteGroupBuilder app)
     {
-        app.MapGet("/Categorias",([FromServices] CategoriaService categoriaService) =>
+        app.MapGet("/categoria", ([FromServices] CategoriaService categoriaService) =>
         {
             var Categorias = categoriaService.GetCategoria();
             return Results.Ok(Categorias);
         });
 
-        app.MapPost("/Categorias", (TiendaVendedorDbContext context, [FromBody] CategoriaCommandDto  categoria) =>
+        app.MapPost("/categoria", ([FromServices] CategoriaService categoriaService, CategoriaCommandDto categoriaDto) =>
         {
-            Categoria nuevaCategoria = new Categoria() { Nombre = categoria.Nombre };
-            context.Categorias.Add(nuevaCategoria);
-            context.SaveChanges();
+            categoriaService.CreateCategoria(categoriaDto);
             return Results.Ok();
         });
+
+        app.MapPut("/Categoria/{idCategoria}", ([FromServices] CategoriaService categoriaService, Guid idCategoria, CategoriaCommandDto CategoriaDto) =>
+        {   
+            categoriaService.UpdateCategoria(idCategoria, CategoriaDto);
+            return Results.Ok();
+        });
+
+        app.MapDelete("/Categoria/{idCategoria}", ([FromServices] CategoriaService categoriaService, Guid idCategoria) =>
+        {   
+            categoriaService.DeleteCategoria(idCategoria);
+            return Results.Ok();
+        });
+
         return app;
 
     }
