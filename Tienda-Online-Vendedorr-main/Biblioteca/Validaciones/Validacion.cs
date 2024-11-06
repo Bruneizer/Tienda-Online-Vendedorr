@@ -7,4 +7,9 @@ public static class Guard
         if(string.IsNullOrEmpty(cadena))
             throw new FormatException(MensajeError);
     }
+
+    public static void Validaciones(decimal precio, string v)
+    {
+        throw new NotImplementedException();
+    }
 }

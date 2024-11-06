@@ -1,73 +1,63 @@
+// using Api.Funcionalidades.Categorias;
+// using Api.Funcionalidades.Productos;
 // using Api.Persistencia;
 // using Biblioteca.Dominio;
 // using Biblioteca.Validaciones;
 
-// namespace Api.Funcionalidades.Productos;
+// namespace Api.Funcionalidades.Vendedores;
 
-
-// public interface IVendedorService
-// {
+// public interface IProductoService{
 //     List<ProductoQueryDto> GetProducto();
-//     void CreateProducto(ProductoCommandDto productoDto);
-//     void UpdateProducto(Guid IdProducto, ProductoCommandDto vendedorDto);
+//     void CreateProducto(ProductoQueryDto productoQueryDto);
+//     void UpdateProducto(Guid IdProducto, ProductoCommanDto productoQueryDto);
 //     void DeleteProducto(Guid IdProducto);
 // }
-// public class ProductpService : IProductoService
-// {
-//     private readonly TiendaVendedorDbContext context;
 
-//     public ProductoService(TiendaVendedorDbContext context)
-//     {
+// public class ProductoService : IProductoService{
+//     private readonly TiendaVendedorDbContext context;
+//     public ProductoService(TiendaVendedorDbContext context){
 //         this.context = context;
 //     }
-//     public void CreateProducto(ProductoCommanDto productoDto)
-//     {
+//     public void CreateProducto(ProductoCommanDto productoDto){
 //         Guard.Validaciones(productoDto.Nombre, "El nombre del producto no puede ser vacio");
-//         var producto = new Vendedor
-//         {
-//             Nombre = vendedorDto.Nombre,
-//             Apellido = vendedorDto.Apellido,
-//             Email = vendedorDto.Email,
-//             CUIT = vendedorDto.CUIT,
-//             NombreUsuario = vendedorDto.NombreUsuario,
-//             Contraseña = vendedorDto.Contraseña
-//         };
-
-//         context.Vendedores.Add(vendedor);
-//         context.SaveChanges();
+//         Guard.Validaciones(productoDto.Precio,"El precio del producto no puede ser vacio");
+//         Guard.Validaciones(productoDto.CantidadStock,"El stock del producto no puede ser vacio");
+//     var producto = new Producto{
+//         Nombre = productoDto.Nombre,
+//         Precio = productoDto.Precio,
+//         CantidadStock = productoDto.CantidadStock,
+//         Descripcion = productoDto.Descripcion,
+//         Categoria = categoriaDto.Categoria,   
+//     };
+//     context.Productos.Add(producto);
+//     context.SaveChanges();    
+    
 //     }
-
-//     public void DeleteVendedor(Guid IdVendedor)
-//     {
-//          var vendedor = context.Vendedores.SingleOrDefault(x => x.Id == IdVendedor);
-//         if (vendedor is not null)
-//         {
-//             context.Vendedores.Remove(vendedor);
+//     public void DeleteProducto(Guid IdProducto){
+//         var producto = context.Productos.SingleOrDefault(x => x.Id == IdProducto);	
+//         if (producto is not null){
+//             context.Productos.Remove(producto);
 //             context.SaveChanges();
 //         }
 //     }
-
-//     public List<VendedorQueryDto> GetVendedor()
-//     {
-//         return context.Vendedores.Select(vendedores => new VendedorQueryDto
+//     public List<ProductoQueryDto> GetProducto(){    
+//         return context.Productos.Select(productos => new ProductoQueryDto
 //         {
-//             Id = vendedores.Id,
-//             Nombre = vendedores.Nombre,
-//             Apellido = vendedores.Apellido,
-//             Email = vendedores.Email,
-//             CUIT = vendedores.CUIT,
-//             NombreUsuario = vendedores.NombreUsuario,
-//             Contraseña = vendedores.Contraseña,
+//         Nombre = productos.Nombre,
+//         Precio = productos.Precio,
+//         CantidadStock = productos.CantidadStock,
+//         Descripcion = productos.Descripcion,
+//         Categoria = productos.Categoria,  
 //         }).ToList();
 //     }
-
-//     public void UpdateVendedor(Guid IdVendedor, VendedorCommandDto vendedorDto)
+//     public void UpdateProducto(Guid IdProducto, ProductoCommanDto productoDto)
 //     {
-//          var vendedor = context.Vendedores.SingleOrDefault(x => x.Id == IdVendedor);
-//         if (vendedor is not null)
+//         var producto = context.Productos.SingleOrDefault(x => x.Id == IdProducto);
+//         if (producto is not null)
 //         {
-//             vendedor.Nombre = vendedorDto.Nombre;
+//             producto.Nombre = productoDto.Nombre;
 //             context.SaveChanges();
 //         }
 //     }
+
 // }

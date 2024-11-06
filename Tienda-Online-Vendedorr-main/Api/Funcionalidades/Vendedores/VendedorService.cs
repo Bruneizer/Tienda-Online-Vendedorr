@@ -5,7 +5,7 @@ using Biblioteca.Validaciones;
 namespace Api.Funcionalidades.Vendedores;
 
 
-public interface IVendedorService
+    public interface IVendedorService
 {
     List<VendedorQueryDto> GetVendedor();
     void CreateVendedor(VendedorCommandDto vendedorDto);
