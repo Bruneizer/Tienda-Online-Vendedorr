@@ -3,8 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Funcionalidades.Vendedores;
 
-public static class VendedorEndPoint
-{
+public static class VendedorEndPoint{ 
     public static RouteGroupBuilder MapvendedorEndpoints  (this RouteGroupBuilder app)
     {
         app.MapGet("/vendedor", ([FromServices] IVendedorService vendedorService) => {

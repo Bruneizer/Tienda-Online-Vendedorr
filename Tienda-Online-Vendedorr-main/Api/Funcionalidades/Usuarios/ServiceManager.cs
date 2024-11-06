@@ -1,6 +1,8 @@
 using Api.Funcionalidades.Categorias;
 using Api.Funcionalidades.Usuarios;
 using Api.Funcionalidades.Vendedores;
+using Api.Funcionalidades.Productos;
+using Biblioteca.Dominio;
 
 namespace Api.Funcionalidades.Usuarios;
 

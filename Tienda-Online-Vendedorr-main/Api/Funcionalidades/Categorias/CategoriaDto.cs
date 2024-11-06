@@ -9,6 +9,5 @@ public class CategoriaQueryDto
 
 public class CategoriaCommandDto
 {
-    public required string Nombre { get; set; }
-
+        public required string Nombre { get; set; }
 }

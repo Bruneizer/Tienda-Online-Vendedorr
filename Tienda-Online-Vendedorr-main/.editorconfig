@@ -1,0 +1,7 @@
+[*.cs]
+
+# IDE0320: Hacer que la función anónima sea estática
+csharp_prefer_static_anonymous_function = true
+
+# IDE0058: El valor de la expresión no se utiliza nunca.
+csharp_style_unused_value_expression_statement_preference = unused_local_variable
