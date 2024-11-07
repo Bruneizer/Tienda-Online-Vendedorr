@@ -8,8 +8,11 @@ public static class Guard
             throw new FormatException(MensajeError);
     }
 
-    public static void Validaciones(decimal precio, string v)
+    public static void Validaciones(decimal precio, string mensajeError)
     {
-        throw new NotImplementedException();
+        if (precio == 0)
+            throw new FormatException(mensajeError);
     }
+
+
 }

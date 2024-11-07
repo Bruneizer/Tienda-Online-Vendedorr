@@ -5,6 +5,7 @@ using Api.Funcionalidades.Categorias;
 using Api.Funcionalidades.Usuarios;
 using Api.Funcionalidades.Vendedores;
 using Api.Funcionalidades.Productos;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
@@ -48,9 +49,10 @@ app.MapGroup("/api")
 .MapvendedorEndpoints()
 .WithTags("Vendedor");
 
-app.Run();
-
 app.MapGroup("/api")
     .MapProductoEndpoints()
     .WithTags("Producto");
+
+
+
 app.Run();

@@ -13,6 +13,7 @@ public static class ServiceManager
         {
             services.AddScoped<CategoriaService, CategoriaService>();
             services.AddScoped<IVendedorService , VendedorService>();
+            services.AddScoped<IProductoService , ProductoService>();
 
             return services;
         }

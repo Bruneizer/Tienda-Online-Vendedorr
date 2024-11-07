@@ -34,7 +34,10 @@ public class CategoriaService : ICategoriaService
     public void CreateCategoria(CategoriaCommandDto categoriaDto)
     {
         Guard.Validaciones(categoriaDto.Nombre, "El nombre de la categoria no puede ser vacia");
-        Categoria nuevaCategoria = new Categoria() { Nombre = categoriaDto.Nombre };
+        Categoria nuevaCategoria = new Categoria()
+        {
+            Nombre = categoriaDto.Nombre
+        };
         context.Categorias.Add(nuevaCategoria);
         context.SaveChanges();
     }
@@ -51,7 +54,7 @@ public class CategoriaService : ICategoriaService
 
     public void UpdateCategoria(Guid idCategoria, CategoriaCommandDto categoriaDto)
     {
-         var categoria = context.Categorias.SingleOrDefault(x => x.Id == idCategoria);
+        var categoria = context.Categorias.SingleOrDefault(x => x.Id == idCategoria);
         if (categoria is not null)
         {
             categoria.Nombre = categoriaDto.Nombre;
