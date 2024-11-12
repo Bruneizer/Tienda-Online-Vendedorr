@@ -5,6 +5,8 @@ using Api.Funcionalidades.Categorias;
 using Api.Funcionalidades.Usuarios;
 using Api.Funcionalidades.Vendedores;
 using Api.Funcionalidades.Productos;
+using Api.Funcionalidades.Tiendas;
+using Api.Funcionalidades.Publicaciones;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +16,8 @@ builder.Services.AddSwaggerGen();
 var connectionString = builder.Configuration.GetConnectionString("TiendaVendedor_bd");
 
 builder.Services.AddDbContext<TiendaVendedorDbContext>(option => option.UseMySql(connectionString, new MySqlServerVersion("8.0.39")));
-builder.Services.AddScoped<IVendedorService , VendedorService>();
+
+builder.Services.AddServiceManager();
 
 
 var options = new DbContextOptionsBuilder<TiendaVendedorDbContext>();
@@ -25,7 +28,6 @@ var context = new TiendaVendedorDbContext(options.Options);
 
 context.Database.Migrate();
 
-builder.Services.AddServiceManager();
 
 var app = builder.Build();
 
@@ -53,6 +55,13 @@ app.MapGroup("/api")
     .MapProductoEndpoints()
     .WithTags("Producto");
 
+app.MapGroup("/api")
+    .MapTiendaEndpoint()
+    .WithTags("Tienda");
+
+app.MapGroup("/api")
+    .MapPublicacionEndpoint()
+    .WithTags("Publicacion");
 
 
 app.Run();

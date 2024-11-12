@@ -25,7 +25,7 @@ public class Producto
     public string Imagen { get; set; } = "";
     
     [Required]
-    public required Categoria categoria { get; set; }
+    public Categoria categoria { get; set; }
 
     public void ModificarStock(int cantidad)
     {

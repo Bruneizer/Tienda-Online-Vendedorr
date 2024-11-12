@@ -1,32 +1,33 @@
 using Biblioteca.Dominio;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Funcionalidades.Tiendas;
 
-public class TiendaEndPoint
+public static class TiendaEndPoint
 {
     public static RouteGroupBuilder MapTiendaEndpoint(this RouteGroupBuilder app)
     {
-        app.MapGet("/tienda", ([FromServices] TiendaService tiendaService) =>
+        app.MapGet("/tienda", ([FromServices] ITiendaService tiendaService) =>
         {
-            var tiendas = TiendaService.GetTienda();
+            var tiendas = tiendaService.GetTienda();
             return Results.Ok(tiendas);
         });
 
-        app.MapPost("/tienda", ([FromServices] TiendaService tiendaService, TiendaCommandDto TiendaDto) =>
+        app.MapPost("/tienda", ([FromServices] ITiendaService tiendaService, TiendaCommandDto TiendaDto) =>
         {
-            TiendaService.CreateTienda(TiendaDto);
+            tiendaService.CreateTienda(TiendaDto);
             return Results.Ok();
         });
 
-        app.MapPut("/Tienda/{idTienda}", ([FromServices] TiendaService tiendaService, Guid idTienda, TiendaCommandDto TiendaDto) =>
+        app.MapPut("/Tienda/{idTienda}", ([FromServices] ITiendaService tiendaService, Guid idTienda, TiendaCommandDto TiendaDto) =>
         {   
-            TiendaService.UpdateTienda(idTienda, TiendaDto);
+            tiendaService.UpdateTienda(idTienda, TiendaDto);
             return Results.Ok();
         });
 
-        app.MapDelete("/Tienda/{idTienda}", ([FromServices] TiendaService tiendaService, Guid idTienda) =>
+        app.MapDelete("/Tienda/{idTienda}", ([FromServices] ITiendaService tiendaService, Guid idTienda) =>
         {   
-            TiendaService.DeleteTienda(idTienda);
+            tiendaService.DeleteTienda(idTienda);
             return Results.Ok();
         });
 

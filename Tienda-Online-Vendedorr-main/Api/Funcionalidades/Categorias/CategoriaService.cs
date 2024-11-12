@@ -42,6 +42,15 @@ public class CategoriaService : ICategoriaService
         context.SaveChanges();
     }
 
+    public void UpdateCategoria(Guid idCategoria, CategoriaCommandDto categoriaDto)
+    {
+        var categoria = context.Categorias.SingleOrDefault(x => x.Id == idCategoria);
+        if (categoria is not null)
+        {
+            categoria.Nombre = categoriaDto.Nombre;
+            context.SaveChanges();
+        }
+    }
     public void DeleteCategoria(Guid idCategoria)
     {
         var categoria = context.Categorias.SingleOrDefault(x => x.Id == idCategoria);
@@ -52,13 +61,4 @@ public class CategoriaService : ICategoriaService
         }
     }
 
-    public void UpdateCategoria(Guid idCategoria, CategoriaCommandDto categoriaDto)
-    {
-        var categoria = context.Categorias.SingleOrDefault(x => x.Id == idCategoria);
-        if (categoria is not null)
-        {
-            categoria.Nombre = categoriaDto.Nombre;
-            context.SaveChanges();
-        }
-    }
 }
