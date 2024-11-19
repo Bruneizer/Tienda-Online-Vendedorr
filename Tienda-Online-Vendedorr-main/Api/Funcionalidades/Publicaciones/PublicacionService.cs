@@ -44,9 +44,7 @@ public class PublicacionService : IPublicacionService
 
 public void CreatePublicacion(PublicacionCommandDto publicacionDto)
 {
-    Guard.Validaciones(publicacionDto.producto.Nombre, "El nombre del producto en la publicacion no puede ser vacia");
-    
-    var producto = context.Productos.SingleOrDefault(p => p.Id == publicacionDto.producto.Id);
+    var producto = context.Productos.SingleOrDefault(p => p.Id == publicacionDto.ProductoId);
     if (producto == null)
     {
         throw new ArgumentException("El producto especificado no existe");
@@ -67,7 +65,7 @@ public void UpdatePublicacion(Guid idPublicacion, PublicacionCommandDto publicac
     var publicacion = context.Publicaciones.SingleOrDefault(x => x.Id == idPublicacion);
     if (publicacion is not null)
     {
-        var producto = context.Productos.SingleOrDefault(p => p.Id == publicacionDto.producto.Id);
+        var producto = context.Productos.SingleOrDefault(p => p.Id == publicacionDto.ProductoId);
         if (producto == null)
         {
             throw new ArgumentException("El producto especificado no existe");

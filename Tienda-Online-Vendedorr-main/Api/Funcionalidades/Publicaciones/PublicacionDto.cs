@@ -12,8 +12,6 @@ public class PublicacionQueryDto
 
 public class PublicacionCommandDto
 {
-    public required ProductoCommanDto producto { get; set; }
+    public Guid ProductoId { get; set; }
     public bool Activo { get; set; }
-
-
 }
