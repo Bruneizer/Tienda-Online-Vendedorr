@@ -5,8 +5,9 @@ namespace Api.Funcionalidades;
 
 public class PublicacionQueryDto
 {
-
     public Guid Id { get; set; }
+    public bool Activo { get; set; }
+    public ProductoQueryDto Producto { get; set; }
 }
 
 public class PublicacionCommandDto

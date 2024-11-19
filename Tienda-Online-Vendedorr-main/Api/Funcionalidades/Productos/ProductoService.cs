@@ -63,6 +63,7 @@ namespace Api.Funcionalidades.Productos
         {
             return context.Productos.Select(productos => new ProductoQueryDto
             {
+                Id = productos.Id,
                 Nombre = productos.Nombre,
                 Precio = productos.Precio,
                 CantidadStock = productos.CantidadStock,

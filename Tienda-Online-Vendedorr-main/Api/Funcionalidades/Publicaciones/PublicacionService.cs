@@ -25,40 +25,59 @@ public class PublicacionService : IPublicacionService
 
     public List<PublicacionQueryDto> GetPublicacion()
     {
-        return context.Publicaciones.Select(publicacion => new PublicacionQueryDto
-        {
-            Id = publicacion.Id,            
-        }).ToList();
+        return context.Publicaciones
+            .Select(publicacion => new PublicacionQueryDto
+            {
+                Id = publicacion.Id,
+                Activo = publicacion.Activo,
+                Producto = new ProductoQueryDto
+                {
+                    Id = publicacion.producto.Id,
+                    Nombre = publicacion.producto.Nombre,
+                    Precio = publicacion.producto.Precio,
+                    CantidadStock = publicacion.producto.CantidadStock,
+                    Descripcion = publicacion.producto.Descripcion,
+                    Categoria = publicacion.producto.categoria.Nombre
+                }
+            }).ToList();
     }
 
-    public void CreatePublicacion (PublicacionCommandDto publicacionDto)
+public void CreatePublicacion(PublicacionCommandDto publicacionDto)
+{
+    Guard.Validaciones(publicacionDto.producto.Nombre, "El nombre del producto en la publicacion no puede ser vacia");
+    
+    var producto = context.Productos.SingleOrDefault(p => p.Id == publicacionDto.producto.Id);
+    if (producto == null)
     {
-        Guard.Validaciones(publicacionDto.producto.Nombre, "El nombre del producto en la publicacion no puede ser vacia");
-        Publicacion nuevaPublicacion = new Publicacion()
-        {
-            Activo = publicacionDto.Activo,
-            producto = 
+        throw new ArgumentException("El producto especificado no existe");
+    }
 
-        };
-        context.Publicaciones.Add(nuevaPublicacion);
+    Publicacion nuevaPublicacion = new Publicacion()
+    {
+        Activo = publicacionDto.Activo,
+        producto = producto
+    };
+    
+    context.Publicaciones.Add(nuevaPublicacion);
+    context.SaveChanges();
+}
+
+public void UpdatePublicacion(Guid idPublicacion, PublicacionCommandDto publicacionDto)
+{
+    var publicacion = context.Publicaciones.SingleOrDefault(x => x.Id == idPublicacion);
+    if (publicacion is not null)
+    {
+        var producto = context.Productos.SingleOrDefault(p => p.Id == publicacionDto.producto.Id);
+        if (producto == null)
+        {
+            throw new ArgumentException("El producto especificado no existe");
+        }
+
+        publicacion.Activo = publicacionDto.Activo;
+        publicacion.producto = producto;
         context.SaveChanges();
     }
-    public void UpdatePublicacion(Guid idPublicacion, PublicacionCommandDto publicacionDto)
-    {
-        var publicacion = context.Publicaciones.SingleOrDefault(x => x.Id == idPublicacion);
-        if (publicacion is not null)
-        {
-            Producto nuevoProducto = new Producto
-            {
-                Nombre = publicacionDto.producto.Nombre,
-                Precio = publicacionDto.producto.Precio,
-                CantidadStock = publicacionDto.producto.CantidadStock,
-            };
-
-            publicacion.producto = publicacion.producto;
-            context.SaveChanges();
-        }
-    }
+}
 
     public void DeletePublicacion(Guid idPublicacion)
     {

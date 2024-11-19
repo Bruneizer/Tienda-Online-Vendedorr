@@ -13,6 +13,6 @@ public class ProductoCommanDto{
     public required decimal Precio { get; set;}
     public required int CantidadStock { get; set;}
     public string Descripcion { get; set;} = "";
-    public Guid IdCategoria { get; set; } 
-
+    public Guid IdCategoria { get; set; }
+    public Guid Id { get; internal set; }
 }
