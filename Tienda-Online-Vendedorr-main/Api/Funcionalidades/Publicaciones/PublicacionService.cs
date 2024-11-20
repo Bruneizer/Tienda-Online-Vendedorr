@@ -11,6 +11,7 @@ public interface IPublicacionService
     void CreatePublicacion (PublicacionCommandDto publicacionDto);
     void UpdatePublicacion(Guid idPublicacion, PublicacionCommandDto publicacionDto);
     void DeletePublicacion(Guid idPublicacion);
+    public void CambiarEstadoPublicacion(Guid idPublicacion, bool estado);
     List<PublicacionQueryDto> GetPublicacion();
 }
 
@@ -86,5 +87,24 @@ public void UpdatePublicacion(Guid idPublicacion, PublicacionCommandDto publicac
             context.SaveChanges();
         }
     }
+
+    public void CambiarEstadoPublicacion(Guid idPublicacion, bool estado)
+{
+    // Buscar la publicación por ID 
+    var publicacion = context.Publicaciones
+        .SingleOrDefault(x => x.Id == idPublicacion);
+
+    if (publicacion is null)
+    {
+        throw new ArgumentException("La publicación no existe o no pertenece al vendedor especificado.");
+    }
+
+    // Cambiar el estado de la publicación
+    publicacion.Activo = estado;
+
+    // Guardar los cambios en la base de datos
+    context.SaveChanges();
+}
+
 
 }

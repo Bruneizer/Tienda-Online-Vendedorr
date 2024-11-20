@@ -45,3 +45,15 @@ C:/Users/Lab15-PC01/Documents/GitHub/Tienda-Online-Vendedorr/Tienda-Online-Vende
 /home/et12alumno/Async/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/obj/Debug/net8.0/refint/Biblioteca.dll
 /home/et12alumno/Async/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/obj/Debug/net8.0/Biblioteca.pdb
 /home/et12alumno/Async/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/obj/Debug/net8.0/ref/Biblioteca.dll
+/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/bin/Debug/net8.0/Biblioteca.deps.json
+/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/bin/Debug/net8.0/Biblioteca.dll
+/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/bin/Debug/net8.0/Biblioteca.pdb
+/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/obj/Debug/net8.0/Biblioteca.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/obj/Debug/net8.0/Biblioteca.AssemblyInfoInputs.cache
+/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/obj/Debug/net8.0/Biblioteca.AssemblyInfo.cs
+/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/obj/Debug/net8.0/Biblioteca.csproj.CoreCompileInputs.cache
+/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/obj/Debug/net8.0/Biblioteca.sourcelink.json
+/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/obj/Debug/net8.0/Biblioteca.dll
+/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/obj/Debug/net8.0/refint/Biblioteca.dll
+/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/obj/Debug/net8.0/Biblioteca.pdb
+/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/obj/Debug/net8.0/ref/Biblioteca.dll

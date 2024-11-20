@@ -4,7 +4,7 @@ using Biblioteca.Dominio;
 
 namespace Api.Funcionalidades.Publicaciones;
 
-public static class  PublicacionEndpoint
+public static class PublicacionEndpoint
 {
     public static RouteGroupBuilder MapPublicacionEndpoint(this RouteGroupBuilder app)
     {
@@ -21,13 +21,22 @@ public static class  PublicacionEndpoint
         });
 
         app.MapPut("/Publicacion/{idPublicacion}", ([FromServices] IPublicacionService publicacionService, Guid idPublicacion, PublicacionCommandDto PublicacionDto) =>
-        {   
+        {
             publicacionService.UpdatePublicacion(idPublicacion, PublicacionDto);
             return Results.Ok();
         });
 
+        app.MapPut("/Publicacion/{idPublicacion}/Estado", ([FromServices] IPublicacionService publicacionService, Guid idPublicacion, bool estado) =>
+        {
+                // Cambiar el estado de la publicación
+                publicacionService.CambiarEstadoPublicacion(idPublicacion, estado);
+                return Results.Ok();
+                
+        });
+
+
         app.MapDelete("/Publicacion/{idPublicacion}", ([FromServices] IPublicacionService publicacionService, Guid idPublicacion) =>
-        {   
+        {
             publicacionService.DeletePublicacion(idPublicacion);
             return Results.Ok();
         });

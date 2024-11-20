@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/et12alumno/Async/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Api/Api.csproj": {}
+    "/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Api/Api.csproj": {}
   },
   "projects": {
-    "/home/et12alumno/Async/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Api/Api.csproj": {
+    "/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Api/Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/et12alumno/Async/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Api/Api.csproj",
+        "projectUniqueName": "/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Api/Api.csproj",
         "projectName": "Api",
-        "projectPath": "/home/et12alumno/Async/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Api/Api.csproj",
+        "projectPath": "/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Api/Api.csproj",
         "packagesPath": "/home/et12alumno/.nuget/packages/",
-        "outputPath": "/home/et12alumno/Async/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Api/obj/",
+        "outputPath": "/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/et12alumno/.nuget/NuGet/NuGet.Config"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/et12alumno/Async/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/Biblioteca.csproj": {
-                "projectPath": "/home/et12alumno/Async/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/Biblioteca.csproj"
+              "/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/Biblioteca.csproj": {
+                "projectPath": "/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/Biblioteca.csproj"
               }
             }
           }
@@ -94,18 +94,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.108/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.110/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/et12alumno/Async/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/Biblioteca.csproj": {
+    "/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/Biblioteca.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/et12alumno/Async/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/Biblioteca.csproj",
+        "projectUniqueName": "/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/Biblioteca.csproj",
         "projectName": "Biblioteca",
-        "projectPath": "/home/et12alumno/Async/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/Biblioteca.csproj",
+        "projectPath": "/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/Biblioteca.csproj",
         "packagesPath": "/home/et12alumno/.nuget/packages/",
-        "outputPath": "/home/et12alumno/Async/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/obj/",
+        "outputPath": "/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/et12alumno/.nuget/NuGet/NuGet.Config"
@@ -147,7 +147,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.108/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.110/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

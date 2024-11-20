@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+FQqL2hdqz+qLejYrOI0lJnlWuxW4xqTGeWzObsJJM0L6i+y112h6uAkLlnDV+hqJAts3HoO+etSfTNtW/hFGA==",
+  "dgSpecHash": "2UKciw+dBL+8YOZK6s4d/shlw3ekrAcsZYdf5nBJS5WhKomxO8JSVNuaVQWPOr4RPTSExpRsVLH6P1J6EWaWAA==",
   "success": true,
-  "projectFilePath": "/home/et12alumno/Async/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Api/Api.csproj",
+  "projectFilePath": "/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Api/Api.csproj",
   "expectedPackageFiles": [
     "/home/et12alumno/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/et12alumno/.nuget/packages/microsoft.aspnetcore.openapi/8.0.10/microsoft.aspnetcore.openapi.8.0.10.nupkg.sha512",
