@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SOfHAaT81P4=",
+  "dgSpecHash": "Pnqz+1rTeNEZuXQ78l0HxakjmRYGUZZMra/ZsPLtWdykHglrgxD/vAG1MTOGiCYtu+hbAkI1LBN5WPAtYkvDNQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lab15-PC01\\Downloads\\Tienda-Online-Vendedorr\\Tienda-Online-Vendedorr-main\\Biblioteca\\Biblioteca.csproj",
+  "projectFilePath": "/home/et12alumno/Async/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/Biblioteca.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

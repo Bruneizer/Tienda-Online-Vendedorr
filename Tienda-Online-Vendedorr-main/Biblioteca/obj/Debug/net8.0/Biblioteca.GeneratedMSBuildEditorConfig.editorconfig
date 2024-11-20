@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Biblioteca
-build_property.ProjectDir = C:\Users\Lab15-PC01\Downloads\Tienda-Online-Vendedorr\Tienda-Online-Vendedorr-main\Biblioteca\
+build_property.ProjectDir = /home/et12alumno/Async/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
