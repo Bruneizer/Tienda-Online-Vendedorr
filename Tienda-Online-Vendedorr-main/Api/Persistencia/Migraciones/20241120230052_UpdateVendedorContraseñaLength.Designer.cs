@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Api.Persistencia.Migraciones
 {
     [DbContext(typeof(TiendaVendedorDbContext))]
-    [Migration("20241015142033_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20241120230052_UpdateVendedorContraseñaLength")]
+    partial class UpdateVendedorContraseñaLength
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -63,7 +63,7 @@ namespace Api.Persistencia.Migraciones
                         .HasColumnType("varchar(50)");
 
                     b.Property<decimal>("Precio")
-                        .HasColumnType("decimal(65,30)");
+                        .HasColumnType("decimal(18, 2)");
 
                     b.Property<Guid?>("TiendaId")
                         .HasColumnType("char(36)");
@@ -137,8 +137,8 @@ namespace Api.Persistencia.Migraciones
 
                     b.Property<string>("Contraseña")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("Domicilio")
                         .IsRequired()

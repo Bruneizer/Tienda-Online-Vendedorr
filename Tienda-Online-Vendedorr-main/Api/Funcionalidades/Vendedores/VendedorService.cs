@@ -1,6 +1,7 @@
 using Api.Persistencia;
 using Biblioteca.Dominio;
 using Biblioteca.Validaciones;
+using BCrypt.Net;
 
 namespace Api.Funcionalidades.Vendedores;
 
@@ -27,6 +28,8 @@ public class VendedorService : IVendedorService
         Guard.Validaciones(vendedorDto.Email, "El email del vendedor no puede ser vacio");
         Guard.Validaciones(vendedorDto.CUIT, "El CUIT del vendedor no puede ser vacio");
 
+        var hashedPassword = BCrypt.Net.BCrypt.HashPassword(vendedorDto.Contraseña);
+
         var vendedor = new Vendedor
         {
             Nombre = vendedorDto.Nombre,
@@ -34,7 +37,7 @@ public class VendedorService : IVendedorService
             Email = vendedorDto.Email,
             CUIT = vendedorDto.CUIT,
             NombreUsuario = vendedorDto.NombreUsuario,
-            Contraseña = vendedorDto.Contraseña
+            Contraseña = hashedPassword
         };
 
         context.Vendedores.Add(vendedor);
