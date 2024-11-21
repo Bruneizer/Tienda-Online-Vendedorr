@@ -19,8 +19,6 @@ public static class ServiceManager
             services.AddScoped<ITiendaService , TiendaService>();
             services.AddScoped<IPublicacionService , PublicacionService>();
 
-
-
             return services;
         }
     }
