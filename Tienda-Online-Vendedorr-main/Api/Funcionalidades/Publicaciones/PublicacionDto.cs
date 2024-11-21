@@ -16,7 +16,7 @@ public class PublicacionCommandDto
     public Guid ProductoId { get; set; }
     public bool Activo { get; set; }
     public Guid IdVendedor { get; set; }
-    public string Url { get; set; } // Nuevo campo para la URL
+    public string Url { get; set; } 
 }
 
 

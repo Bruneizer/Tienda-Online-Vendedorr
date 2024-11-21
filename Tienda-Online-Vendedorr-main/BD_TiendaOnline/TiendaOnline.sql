@@ -28,6 +28,7 @@ CREATE TABLE Publicaciones (
     Id INT AUTO_INCREMENT PRIMARY KEY,
     ProductoId INT,
     Activo BOOLEAN DEFAULT TRUE,
+    Url VARCHAR(45),
     FechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (ProductoId) REFERENCES Productos(Id)
 );

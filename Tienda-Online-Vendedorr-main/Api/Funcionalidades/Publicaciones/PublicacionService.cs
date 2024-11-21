@@ -38,7 +38,7 @@ public class PublicacionService : IPublicacionService
                 Precio = publicacion.producto.Precio,
                 CantidadStock = publicacion.producto.CantidadStock,
                 Descripcion = publicacion.producto.Descripcion,
-                Categoria = publicacion.producto.categoria.Nombre
+                Categoria = publicacion.producto.categoria.Nombre,
                 ImagenUrl = publicacion.producto.ImagenUrl // Incluir la URL de la imagen
             },
         }).ToList();
