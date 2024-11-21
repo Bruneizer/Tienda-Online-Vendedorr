@@ -56,16 +56,15 @@ public class VendedorService : IVendedorService
 
     public List<VendedorQueryDto> GetVendedor()
     {
-        return context.Vendedores.Select(vendedores => new VendedorQueryDto
-        {
-            Id = vendedores.Id,
-            Nombre = vendedores.Nombre,
-            Apellido = vendedores.Apellido,
-            Email = vendedores.Email,
-            CUIT = vendedores.CUIT,
-            NombreUsuario = vendedores.NombreUsuario,
-            Contraseña = vendedores.Contraseña,
-        }).ToList();
+    return context.Vendedores.Select(vendedor => new VendedorQueryDto
+    {
+        Id = vendedor.Id,
+        Nombre = vendedor.Nombre,
+        Apellido = vendedor.Apellido,
+        Email = vendedor.Email,
+        CUIT = vendedor.CUIT,
+        NombreUsuario = vendedor.NombreUsuario
+    }).ToList();
     }
 
     public void UpdateVendedor(Guid IdVendedor, VendedorCommandDto vendedorDto)
