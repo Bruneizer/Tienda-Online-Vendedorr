@@ -15,10 +15,11 @@ public static class PublicacionEndpoint
         });
 
         app.MapPost("/publicacion", ([FromServices] IPublicacionService publicacionService, PublicacionCommandDto publicacionDto) =>
-        {
-            publicacionService.CreatePublicacion(publicacionDto);
-            return Results.Ok();
+{
+        publicacionService.CreatePublicacion(publicacionDto);
+        return Results.Ok();
         });
+
 
         app.MapPut("/Publicacion/{idPublicacion}", ([FromServices] IPublicacionService publicacionService, Guid idPublicacion, PublicacionCommandDto PublicacionDto) =>
         {

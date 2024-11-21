@@ -6,13 +6,15 @@ using BCrypt.Net;
 namespace Api.Funcionalidades.Vendedores;
 
 
-    public interface IVendedorService
+public interface IVendedorService
 {
     List<VendedorQueryDto> GetVendedor();
     void CreateVendedor(VendedorCommandDto vendedorDto);
-    void UpdateVendedor(Guid IdVendedor, VendedorCommandDto vendedorDto);
-    void DeleteVendedor(Guid IdVendedor);
+    void UpdateVendedor(Guid idVendedor, VendedorCommandDto vendedorDto);
+    void DeleteVendedor(Guid idVendedor);
 }
+
+
 public class VendedorService : IVendedorService
 {
     private readonly TiendaVendedorDbContext context;
@@ -21,12 +23,33 @@ public class VendedorService : IVendedorService
     {
         this.context = context;
     }
+
+    public List<VendedorQueryDto> GetVendedor()
+    {
+        return context.Vendedores
+            .Select(v => new VendedorQueryDto
+            {
+                Id = v.Id,
+                Nombre = v.Nombre,
+                Apellido = v.Apellido,
+                Email = v.Email,
+                CUIT = v.CUIT,
+                NombreUsuario = v.NombreUsuario
+            })
+            .ToList();
+    }
+
     public void CreateVendedor(VendedorCommandDto vendedorDto)
     {
-        Guard.Validaciones(vendedorDto.Nombre, "El nombre del vendedor no puede ser vacio");
-        Guard.Validaciones(vendedorDto.Apellido, "El apellido del vendedor no puede ser vacio");
-        Guard.Validaciones(vendedorDto.Email, "El email del vendedor no puede ser vacio");
-        Guard.Validaciones(vendedorDto.CUIT, "El CUIT del vendedor no puede ser vacio");
+        Guard.Validaciones(vendedorDto.Nombre, "El nombre del vendedor no puede ser vacío");
+        Guard.Validaciones(vendedorDto.Apellido, "El apellido del vendedor no puede ser vacío");
+        Guard.Validaciones(vendedorDto.Email, "El email del vendedor no puede ser vacío");
+        Guard.Validaciones(vendedorDto.CUIT, "El CUIT del vendedor no puede ser vacío");
+
+        if (string.IsNullOrWhiteSpace(vendedorDto.Contraseña))
+        {
+            throw new ArgumentException("La contraseña no puede ser vacía");
+        }
 
         var hashedPassword = BCrypt.Net.BCrypt.HashPassword(vendedorDto.Contraseña);
 
@@ -44,36 +67,38 @@ public class VendedorService : IVendedorService
         context.SaveChanges();
     }
 
-    public void DeleteVendedor(Guid IdVendedor)
+    public void UpdateVendedor(Guid idVendedor, VendedorCommandDto vendedorDto)
     {
-         var vendedor = context.Vendedores.SingleOrDefault(x => x.Id == IdVendedor);
-        if (vendedor is not null)
+        var vendedor = context.Vendedores.Find(idVendedor);
+        if (vendedor == null)
         {
-            context.Vendedores.Remove(vendedor);
-            context.SaveChanges();
+            throw new KeyNotFoundException("Vendedor no encontrado.");
         }
+
+        vendedor.Nombre = vendedorDto.Nombre;
+        vendedor.Apellido = vendedorDto.Apellido;
+        vendedor.Email = vendedorDto.Email;
+        vendedor.CUIT = vendedorDto.CUIT;
+        vendedor.NombreUsuario = vendedorDto.NombreUsuario;
+
+        if (!string.IsNullOrWhiteSpace(vendedorDto.Contraseña))
+        {
+            vendedor.Contraseña = BCrypt.Net.BCrypt.HashPassword(vendedorDto.Contraseña);
+        }
+
+        context.SaveChanges();
     }
 
-    public List<VendedorQueryDto> GetVendedor()
+    public void DeleteVendedor(Guid idVendedor)
     {
-    return context.Vendedores.Select(vendedor => new VendedorQueryDto
-    {
-        Id = vendedor.Id,
-        Nombre = vendedor.Nombre,
-        Apellido = vendedor.Apellido,
-        Email = vendedor.Email,
-        CUIT = vendedor.CUIT,
-        NombreUsuario = vendedor.NombreUsuario
-    }).ToList();
-    }
-
-    public void UpdateVendedor(Guid IdVendedor, VendedorCommandDto vendedorDto)
-    {
-         var vendedor = context.Vendedores.SingleOrDefault(x => x.Id == IdVendedor);
-        if (vendedor is not null)
+        var vendedor = context.Vendedores.Find(idVendedor);
+        if (vendedor == null)
         {
-            vendedor.Nombre = vendedorDto.Nombre;
-            context.SaveChanges();
+            throw new KeyNotFoundException("Vendedor no encontrado.");
         }
+
+        context.Vendedores.Remove(vendedor);
+        context.SaveChanges();
     }
 }
+
