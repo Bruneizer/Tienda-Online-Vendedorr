@@ -48,7 +48,7 @@ app.MapGroup("/api")
     .WithTags("Categoria");
 
 app.MapGroup("/api")
-.MapvendedorEndpoints()
+.MapVendedorEndpoints()
 .WithTags("Vendedor");
 
 app.MapGroup("/api")

@@ -8,21 +8,18 @@ public class Publicacion
 {
     [Key]
     public Guid Id { get; set; } = Guid.NewGuid();
-    public required Producto producto { get; set; }
-    
-    [Required]
-    public required bool Activo { get; set; }
 
-    public void ActivarPublicacion()
-    {
-        Activo = true;
-    }
+    [ForeignKey("ProductoId")]
+    public Producto producto { get; set; }
+    public Guid ProductoId { get; set; }
 
-    public void DesactivarPublicacion()
-    {
-        Activo = false;
-    }
-     
     [Required]
+    public bool Activo { get; set; }
+
+    [ForeignKey("VendedorId")]
     public Vendedor Vendedor { get; set; }
+    public Guid VendedorId { get; set; }
+
+    // Agregar campo URL a la entidad
+    public string Url { get; set; } // Nuevo campo
 }

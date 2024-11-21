@@ -40,7 +40,6 @@ public class PublicacionService : IPublicacionService
                 Descripcion = publicacion.producto.Descripcion,
                 Categoria = publicacion.producto.categoria.Nombre
             },
-            VendedorId = publicacion.Vendedor.Id // Recuperar el ID del vendedor
         }).ToList();
     }
 
@@ -52,22 +51,27 @@ public void CreatePublicacion(PublicacionCommandDto publicacionDto)
         throw new ArgumentException("El producto especificado no existe");
     }
 
-    var vendedor = context.Vendedores.SingleOrDefault(v => v.Id == publicacionDto.VendedorId);
+    var vendedor = context.Vendedores.SingleOrDefault(v => v.Id == publicacionDto.IdVendedor);
     if (vendedor == null)
     {
         throw new ArgumentException("El vendedor especificado no existe");
     }
 
+    // Si no se proporciona una URL, generar una automáticamente
+    string url = publicacionDto.Url ?? $"https://miapp.com/publicaciones/{Guid.NewGuid()}";
+
     Publicacion nuevaPublicacion = new Publicacion()
     {
         Activo = publicacionDto.Activo,
         producto = producto,
-        Vendedor = vendedor 
+        Vendedor = vendedor,
+        Url = url // Asignar la URL
     };
-    
+
     context.Publicaciones.Add(nuevaPublicacion);
     context.SaveChanges();
 }
+
 
 
 public void UpdatePublicacion(Guid idPublicacion, PublicacionCommandDto publicacionDto)
