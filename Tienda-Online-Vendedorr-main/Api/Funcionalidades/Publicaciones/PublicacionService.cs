@@ -26,21 +26,22 @@ public class PublicacionService : IPublicacionService
 
     public List<PublicacionQueryDto> GetPublicacion()
     {
-        return context.Publicaciones
-            .Select(publicacion => new PublicacionQueryDto
+    return context.Publicaciones
+        .Select(publicacion => new PublicacionQueryDto
+        {
+            Id = publicacion.Id,
+            Activo = publicacion.Activo,
+            Producto = new ProductoQueryDto
             {
-                Id = publicacion.Id,
-                Activo = publicacion.Activo,
-                Producto = new ProductoQueryDto
-                {
-                    Id = publicacion.producto.Id,
-                    Nombre = publicacion.producto.Nombre,
-                    Precio = publicacion.producto.Precio,
-                    CantidadStock = publicacion.producto.CantidadStock,
-                    Descripcion = publicacion.producto.Descripcion,
-                    Categoria = publicacion.producto.categoria.Nombre
-                }
-            }).ToList();
+                Id = publicacion.producto.Id,
+                Nombre = publicacion.producto.Nombre,
+                Precio = publicacion.producto.Precio,
+                CantidadStock = publicacion.producto.CantidadStock,
+                Descripcion = publicacion.producto.Descripcion,
+                Categoria = publicacion.producto.categoria.Nombre
+            },
+            VendedorId = publicacion.Vendedor.Id // Recuperar el ID del vendedor
+        }).ToList();
     }
 
 public void CreatePublicacion(PublicacionCommandDto publicacionDto)
@@ -51,15 +52,23 @@ public void CreatePublicacion(PublicacionCommandDto publicacionDto)
         throw new ArgumentException("El producto especificado no existe");
     }
 
+    var vendedor = context.Vendedores.SingleOrDefault(v => v.Id == publicacionDto.VendedorId);
+    if (vendedor == null)
+    {
+        throw new ArgumentException("El vendedor especificado no existe");
+    }
+
     Publicacion nuevaPublicacion = new Publicacion()
     {
         Activo = publicacionDto.Activo,
-        producto = producto
+        producto = producto,
+        Vendedor = vendedor 
     };
     
     context.Publicaciones.Add(nuevaPublicacion);
     context.SaveChanges();
 }
+
 
 public void UpdatePublicacion(Guid idPublicacion, PublicacionCommandDto publicacionDto)
 {

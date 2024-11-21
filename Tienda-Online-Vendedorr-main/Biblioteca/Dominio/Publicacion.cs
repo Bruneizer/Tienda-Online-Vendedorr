@@ -22,4 +22,7 @@ public class Publicacion
     {
         Activo = false;
     }
+     
+    [Required]
+    public Vendedor Vendedor { get; set; }
 }
