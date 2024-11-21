@@ -45,11 +45,7 @@ public class VendedorService : IVendedorService
         Guard.Validaciones(vendedorDto.Apellido, "El apellido del vendedor no puede ser vacío");
         Guard.Validaciones(vendedorDto.Email, "El email del vendedor no puede ser vacío");
         Guard.Validaciones(vendedorDto.CUIT, "El CUIT del vendedor no puede ser vacío");
-
-        if (string.IsNullOrWhiteSpace(vendedorDto.Contraseña))
-        {
-            throw new ArgumentException("La contraseña no puede ser vacía");
-        }
+        Guard.Validaciones(vendedorDto.Contraseña, "La contraseña no puede ser vacia");
 
         var hashedPassword = BCrypt.Net.BCrypt.HashPassword(vendedorDto.Contraseña);
 

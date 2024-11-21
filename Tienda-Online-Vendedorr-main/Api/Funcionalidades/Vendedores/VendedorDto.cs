@@ -17,7 +17,7 @@ public class VendedorCommandDto
     public required string Email { get; set; }
     public required string CUIT { get; set; }
     public required string NombreUsuario { get; set; }
-    public string? Contraseña { get; set; }
+    public string Contraseña { get; set; }
 }
 
 

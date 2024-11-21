@@ -599,10 +599,7 @@
       "System.Threading.Channels/6.0.0": {},
       "Biblioteca/1.0.0": {
         "runtime": {
-          "Biblioteca.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Biblioteca.dll": {}
         }
       }
     }

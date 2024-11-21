@@ -11,7 +11,9 @@ public interface IPublicacionService
     void CreatePublicacion (PublicacionCommandDto publicacionDto);
     void UpdatePublicacion(Guid idPublicacion, PublicacionCommandDto publicacionDto);
     void DeletePublicacion(Guid idPublicacion);
-    public void CambiarEstadoPublicacion(Guid idPublicacion, bool estado);
+
+    public void CambiarEstadoPublicacion(Guid idPublicacion, bool nuevoEstado);
+
     List<PublicacionQueryDto> GetPublicacion();
 }
 
@@ -40,7 +42,8 @@ public class PublicacionService : IPublicacionService
                 Descripcion = publicacion.producto.Descripcion,
                 Categoria = publicacion.producto.categoria.Nombre,
             },
-            Url = publicacion.Url
+            Url = publicacion.Url,
+            idVendedor = publicacion.Vendedor.Id
         }).ToList();
     }
 
@@ -102,21 +105,21 @@ public void UpdatePublicacion(Guid idPublicacion, PublicacionCommandDto publicac
         }
     }
 
-    public void CambiarEstadoPublicacion(Guid idPublicacion, bool estado)
+public void CambiarEstadoPublicacion(Guid idPublicacion, bool nuevoEstado)
 {
-    // Buscar la publicación por ID 
-    var publicacion = context.Publicaciones
-        .SingleOrDefault(x => x.Id == idPublicacion);
+    // Buscar la publicación por ID
+    var publicacion = context.Publicaciones.SingleOrDefault(x => x.Id == idPublicacion);
 
-    if (publicacion is null)
+    // Verificar si la publicación existe
+    if (publicacion == null)
     {
-        throw new ArgumentException("La publicación no existe o no pertenece al vendedor especificado.");
+        throw new ArgumentException("La publicación especificada no existe.");
     }
 
-    // Cambiar el estado de la publicación
-    publicacion.Activo = estado;
+    // Actualizar el estado de la publicación
+    publicacion.Activo = nuevoEstado;
 
-    // Guardar los cambios en la base de datos
+    // Guardar cambios en la base de datos
     context.SaveChanges();
 }
 

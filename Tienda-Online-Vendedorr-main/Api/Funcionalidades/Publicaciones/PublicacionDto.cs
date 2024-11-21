@@ -9,7 +9,7 @@ public class PublicacionQueryDto
     public bool Activo { get; set; }
     public ProductoQueryDto Producto { get; set; }
     public string Url { get; set; }
-
+    public Guid idVendedor {get; set;}
 }
 
 public class PublicacionCommandDto
