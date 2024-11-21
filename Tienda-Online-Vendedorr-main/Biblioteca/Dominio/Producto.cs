@@ -36,4 +36,7 @@ public class Producto
     {
         Precio = nuevoPrecio;
     }
+
+    [StringLength(2083)] // Longitud máxima para URLs
+    public string? ImagenUrl { get; set; }
 }

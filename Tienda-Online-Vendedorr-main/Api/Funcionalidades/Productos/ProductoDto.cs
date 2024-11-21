@@ -6,6 +6,7 @@ public class ProductoQueryDto{
     public required int CantidadStock { get; set;}
     public string Descripcion { get; set;} = "";
     public required string Categoria { get; set; }
+    public string? ImagenUrl { get; set; }
 }
 
 public class ProductoCommanDto{
