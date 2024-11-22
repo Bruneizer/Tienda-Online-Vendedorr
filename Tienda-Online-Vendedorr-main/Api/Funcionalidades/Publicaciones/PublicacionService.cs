@@ -3,6 +3,7 @@ using Api.Funcionalidades.Productos;
 using Api.Persistencia;
 using Biblioteca.Dominio;
 using Biblioteca.Validaciones;
+using Microsoft.EntityFrameworkCore;
 
 namespace Api.Funcionalidades.Publicaciones;
 
@@ -78,7 +79,9 @@ public class PublicacionService : IPublicacionService
 
 public void UpdateActivoPublicacion(Guid idPublicacion, bool activo, Guid idVendedor)
 {
-    var publicacion = context.Publicaciones.SingleOrDefault(x => x.Id == idPublicacion);
+    var publicacion = context.Publicaciones
+        .Include(p => p.Vendedor)  // Incluir explícitamente la relación con Vendedor
+        .SingleOrDefault(x => x.Id == idPublicacion);
 
     // Verificar si la publicación existe
     if (publicacion == null)
@@ -92,10 +95,7 @@ public void UpdateActivoPublicacion(Guid idPublicacion, bool activo, Guid idVend
         throw new UnauthorizedAccessException("No tiene permisos para modificar esta publicación.");
     }
 
-    // Solo actualizar el estado 'Activo'
     publicacion.Activo = activo;
-
-    // Guardar los cambios en la base de datos
     context.SaveChanges();
 }
 
