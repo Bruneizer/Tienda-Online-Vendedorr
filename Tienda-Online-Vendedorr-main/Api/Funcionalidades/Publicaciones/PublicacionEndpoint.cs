@@ -27,7 +27,7 @@ app.MapPut("/publicacion/{idPublicacion}/activo", async (Guid idPublicacion, boo
         // Llamar al método para actualizar solo el estado 'Activo' de la publicación
         publicacionService.UpdateActivoPublicacion(idPublicacion, activo, idVendedor);
 
-        return Results.Ok("El estado de la publicación se ha actualizado correctamente.");
+        return Results.Ok("El estado de la publicación se ha actualizado");
     }
     catch (UnauthorizedAccessException ex)
     {
@@ -48,10 +48,6 @@ app.MapPut("/publicacion/{idPublicacion}/activo", async (Guid idPublicacion, boo
         );
     }
 });
-
-
-
-
 
 
 

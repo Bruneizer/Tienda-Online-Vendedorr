@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\carlo\\Documents\\GitHub\\Tienda-Online-Vendedorr\\Tienda-Online-Vendedorr-main\\Biblioteca\\Biblioteca.csproj": {}
+    "/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/Biblioteca.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carlo\\Documents\\GitHub\\Tienda-Online-Vendedorr\\Tienda-Online-Vendedorr-main\\Biblioteca\\Biblioteca.csproj": {
+    "/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/Biblioteca.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carlo\\Documents\\GitHub\\Tienda-Online-Vendedorr\\Tienda-Online-Vendedorr-main\\Biblioteca\\Biblioteca.csproj",
+        "projectUniqueName": "/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/Biblioteca.csproj",
         "projectName": "Biblioteca",
-        "projectPath": "C:\\Users\\carlo\\Documents\\GitHub\\Tienda-Online-Vendedorr\\Tienda-Online-Vendedorr-main\\Biblioteca\\Biblioteca.csproj",
-        "packagesPath": "C:\\Users\\carlo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carlo\\Documents\\GitHub\\Tienda-Online-Vendedorr\\Tienda-Online-Vendedorr-main\\Biblioteca\\obj\\",
+        "projectPath": "/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/Biblioteca.csproj",
+        "packagesPath": "/home/et12alumno/.nuget/packages/",
+        "outputPath": "/mnt/Datos/Tienda-Online-Vendedorr/Tienda-Online-Vendedorr-main/Biblioteca/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\carlo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/et12alumno/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -58,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.110/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
